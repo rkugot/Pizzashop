@@ -10,10 +10,15 @@ function something()
 
 }
 
-function add_to_cart(id)
+function add_to_cart(id) //change to button plus
 {
-	alert('You added pizza with id:'+id);
+	var key = 'product_' + id;
+	var x = window.localStorage.getItem(key); // create unic key for product in localStorage
+	x = x*1 + 1;
+	window.localStorage.setItem(key, x);
 }
+
+//add function remove_from_cart - button minus
 
 $(function () {
   // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
