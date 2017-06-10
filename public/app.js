@@ -10,16 +10,12 @@ function something()
 
 }
 
-// function () {
-//   // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
-//   [data-toggle="tooltip"].tooltip()
-// }
+function add_to_cart()
+{
+	alert('Hello from function');
+}
 
-// <!-- Скрипт для инициализации элементов на странице, имеющих атрибут data-toggle="tooltip" -->
-// <script>
-// // после загрузки страницы
-// $(function () {
-//   // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
-//   $('[data-toggle="tooltip"]').tooltip()
-// })
-// </script>
+$(function () {
+  // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
+  $('[data-toggle="tooltip"]').tooltip()
+})
