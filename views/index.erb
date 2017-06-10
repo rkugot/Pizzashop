@@ -1,7 +1,5 @@
 <h2>Welcome to Pizza Shop</h2>
 
-
-
 <div class="row">	
 
 	<% @products.each do |p|%>
@@ -9,14 +7,16 @@
 		<div>
 			<%= p.title %>
 		</div>
+		<br />
 		<div>
 			<img src="<%= p.path_to_image%>" class="img-rounded" data-toggle="tooltip" title="<%= p.description %>">
 		</div>	
+		<br />
 		<div>
-			Price: <%= p.price %>
+			Price: <%= p.price %> br
 		</div>	
 		<div>
-			Size: <%= p.size %>
+			Size: <%= p.size %> sm
 		</div>				
 	</div>
 	<% end %>
