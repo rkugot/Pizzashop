@@ -1,16 +1,29 @@
 <h2>Welcome to Pizza Shop</h2>
 
-<div class="row">
-	
 
-<% @products.each do |p|%>
+
+<div class="row">	
+
+	<% @products.each do |p|%>
 	<div class="col-md-3">
-	<p>
-		<%= p.title %>
-	</p>
+		<div>
+			<%= p.title %>
+		</div>
+		<div>
+			<img src="<%= p.path_to_image%>" class="img-rounded" data-toggle="tooltip" title="<%= p.description %>">
+		</div>	
+		<div>
+			Price: <%= p.price %>
+		</div>	
+		<div>
+			Size: <%= p.size %>
+		</div>				
 	</div>
-<% end %>
+	<% end %>
+
 </div>
+<br />
+<br />
 
 
 <button class="btn btn-primary btn-lg" onclick="something()">Click me</button>

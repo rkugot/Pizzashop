@@ -9,3 +9,17 @@ function something()
 	alert(x);
 
 }
+
+function () {
+  // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
+  [data-toggle="tooltip"].tooltip()
+}
+
+// <!-- Скрипт для инициализации элементов на странице, имеющих атрибут data-toggle="tooltip" -->
+// <script>
+// // после загрузки страницы
+// $(function () {
+//   // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
+//   $('[data-toggle="tooltip"]').tooltip()
+// })
+// </script>
