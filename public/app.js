@@ -37,6 +37,23 @@ function cart_get_number_of_items()
 	return cnt;
 }
 
+function cart_get_orders()
+{
+	var orders = '';
+
+	for(var i = 0; i < window.localStorage.length; i++) //аналог for each in ruby
+	{
+		var key = window.localStorage.key(i); //получаем ключ 
+		var value = window.localStorage.getItem(key); //получаем значение по ключу
+
+		if(key.indexOf('product_') == 0)
+		{
+			orders = orders + key + '=' + value + ',';
+		}
+	}
+
+	return orders.slice(0,-1);
+}
 //add function remove_from_cart, add plus and minus buttons
 
 $(function () {
