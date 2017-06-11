@@ -18,10 +18,12 @@ get '/about' do
 	erb :about
 end
 
-get '/cart' do
+post '/cart' do
+	@orders = params[:ordersinput]
+	@items = parse_orders_input(@orders)
 	erb :cart
 end
 
-post '/cart' do
-	erb :cart
+def parse_orders_input(orders)
+	orders.split(',')
 end
