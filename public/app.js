@@ -66,7 +66,7 @@ function cart_get_orders()
 		}
 	}
 
-	return orders.slice(0,-1);
+	return orders;
 }
 //add function remove_from_cart, add plus and minus buttons
 

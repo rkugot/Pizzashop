@@ -1,39 +1,38 @@
 <h2>Your Cart</h2>
 
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th class="col-md-2">Name</th>
-			<th class="col-md-2">Price</th>
-			<th>Qty</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% total_price = 0 %>
-		<% total_qty = 0 %>
-		<% @items.each do |item| %>
+<div>
+	<table class="table table-striped">
+		<thead>
 			<tr>
-				<td><%= item[0].title %></td>
-				<td><%= item[0].price %></td>
-				<td><%= item[1] %></td>
+				<th class="col-md-2">Name</th>
+				<th class="col-md-2">Price</th>
+				<th>Qty</th>
 			</tr>
-			<% total_price += item[0].price.to_i * item[1].to_i %>
-			<% total_qty += item[1].to_i %>
-		<% end %>
-			<tr>
-				<td></td>
-				<td></td>
-				<td>Total: <%= total_qty %></td>
-				<td class="col-md-7">Total price: <%= total_price %></td>
-			</tr>
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			<% total_price = 0 %>
+			<% total_qty = 0 %>
+			<% @items.each do |item| %>
+				<tr>
+					<td><%= item[0].title %></td>
+					<td><%= item[0].price %></td>
+					<td><%= item[1] %></td>
+				</tr>
+				<% total_price += item[0].price.to_i * item[1].to_i %>
+				<% total_qty += item[1].to_i %>
+			<% end %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Total: <%= total_qty %></td>
+					<td class="col-md-7">Total price: <%= total_price %></td>
+				</tr>
+		</tbody>
+	</table>
+</div>
 <form action="/order" method="POST">
 
-    <div class="form-group">
-      <label>Your order:</label>
-      <input name="order[list]" type="text" class="form-control" placeholder="Введите ваше имя" value="<%= @orders %>">
-    </div>
+    <input name="order[list]" type="hidden" value="<%= @orders %>">
 
     <div class="form-group">
       <label>Name:</label>
@@ -52,5 +51,5 @@
 
 
 
-    <button type="submit" class="btn btn-primary btn-lg">Order</button>
+    <button type="submit" class="btn btn-success btn-lg">Place this order</button>
 </form>
