@@ -33,7 +33,9 @@ post '/cart' do
 end
 
 post '/order' do
-	
+	@s = Shipment.new params[:order]
+	@s.save
+	erb :order
 end
 
 def parse_orders_input(orders)
