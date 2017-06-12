@@ -21,9 +21,22 @@ end
 post '/cart' do
 	@orders = params[:ordersinput]
 	@items = parse_orders_input(@orders)
+
+	@items.each do |item|
+		item[0] = Product.find(item[0])
+	end
+	
 	erb :cart
 end
 
 def parse_orders_input(orders)
-	orders.split(',')
+	s = orders.split(',')
+	arr = []
+	s.each do |x|
+		s1 = x.split('=')
+		s2 = s1[0].split('_')
+		arr2 = [s2[1],s1[1]]
+		arr << arr2
+	end
+	return arr
 end
