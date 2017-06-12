@@ -16,6 +16,8 @@ class Shipment < ActiveRecord::Base
 end
 
 class Contact < ActiveRecord::Base
+	validates :email, presence: true, format: { with: /@/}
+	validates :message, presence: true
 end
 
 get '/' do
@@ -33,6 +35,7 @@ get '/admin' do
 end
 
 get '/contacts' do
+	@contact = Contact.new
 	erb :contacts
 end
 
@@ -58,6 +61,17 @@ post '/order' do
 	else
 		@error = @s.errors.full_messages.first
 		erb "Error"
+	end
+end
+
+post '/contacts' do
+	@contact = Contact.new params[:contact]
+
+	if @contact.save
+		erb "You message is send"
+	else
+		@error = @contact.errors.full_messages.first
+		erb :contacts
 	end
 end
 
