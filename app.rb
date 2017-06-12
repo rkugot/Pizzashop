@@ -24,6 +24,11 @@ get '/about' do
 	erb :about
 end
 
+get '/admin' do
+	@shipms = Shipment.all
+	erb :orders_list
+end
+
 post '/cart' do
 	@orders = params[:ordersinput]
 	@items = parse_orders_input(@orders)

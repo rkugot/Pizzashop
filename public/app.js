@@ -68,6 +68,7 @@ function cart_get_orders()
 
 	return orders;
 }
+
 //add function remove_from_cart, add plus and minus buttons
 
 $(function () {
