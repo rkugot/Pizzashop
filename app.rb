@@ -33,6 +33,10 @@ post '/cart' do
 	@orders = params[:ordersinput]
 	@items = parse_orders_input(@orders)
 
+	if @items.length == 0
+		return erb :cart_is_empty
+	end
+
 	@items.each do |item|
 		item[0] = Product.find(item[0])
 	end
