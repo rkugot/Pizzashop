@@ -1,0 +1,17 @@
+<h2>Contact us</h2>
+
+<form action="/contacts" method="POST">
+
+	<div class="form-group">
+      <label>Your email</label>
+      <input name="contact[email]" type="text" class="form-control" placeholder="Enter email" value="<%= @contact.email %>">
+    </div>
+
+    <div class="form-group">
+      <label>Your message</label>
+      <textarea name="contact[message]" class="form-control" rows="3" placeholder="Enter message"><%= @contact.message %></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send message</button>
+
+</form>

@@ -15,6 +15,9 @@ class Shipment < ActiveRecord::Base
 	validates :address, presence: true
 end
 
+class Contact < ActiveRecord::Base
+end
+
 get '/' do
 	@products = Product.all
 	erb :index
@@ -27,6 +30,10 @@ end
 get '/admin' do
 	@shipms = Shipment.order "created_at DESC"
 	erb :orders_list
+end
+
+get '/contacts' do
+	erb :contacts
 end
 
 post '/cart' do
