@@ -9,6 +9,22 @@ function add_to_cart(id)
 	update_orders_button();
 }
 
+function remove_from_cart(id)
+{
+	var key = 'product_' + id;
+	var x = window.localStorage.getItem(key); // create unic key for product in localStorage
+	
+	if(x*1 >= 1)
+	{
+		x = x*1 - 1;
+		window.localStorage.setItem(key, x);
+
+		update_orders_input();
+		update_orders_button();
+	}
+
+}
+
 function update_orders_input()
 {
 	var orders = cart_get_orders();
