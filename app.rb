@@ -25,7 +25,7 @@ get '/about' do
 end
 
 get '/admin' do
-	@shipms = Shipment.all
+	@shipms = Shipment.order "created_at DESC"
 	erb :orders_list
 end
 
