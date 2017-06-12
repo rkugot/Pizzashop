@@ -69,6 +69,14 @@ function cart_get_orders()
 	return orders;
 }
 
+function order_cancel()
+{
+	window.localStorage.clear();
+	update_orders_input();
+	update_orders_button();
+	return false;
+}
+
 //add function remove_from_cart, add plus and minus buttons
 
 $(function () {
