@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
 end
 
 class Shipment < ActiveRecord::Base
+	validates :name, presence: true
+	validates :phone, presence: true
+	validates :address, presence: true
 end
 
 get '/' do
@@ -34,8 +37,12 @@ end
 
 post '/order' do
 	@s = Shipment.new params[:order]
-	@s.save
-	erb :order
+	if @s.save
+		erb :order
+	else
+		@error = @s.errors.full_messages.first
+		erb "Error"
+	end
 end
 
 def parse_orders_input(orders)
